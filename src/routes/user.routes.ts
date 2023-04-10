@@ -7,6 +7,7 @@ import { ensureEmailExistsMiddleware } from "../middlewares/ensureEmailExists.mi
 import { getUserByIdController } from "../controllers/users.controllers";
 import { ensureTokenIsValidMiddleware } from "../middlewares/ensureTokenIsValid.middleware";
 import { ensureIsAdminMiddleware } from "../middlewares/ensureIsAdmin.middleware";
+import { getProfileController } from "../controllers/users.controllers";
 
 export const userRoutes: Router = Router()
 
@@ -20,6 +21,11 @@ userRoutes.get('',
     ensureTokenIsValidMiddleware,
     ensureIsAdminMiddleware,
     listUserController
+)
+
+userRoutes.get('/profile',
+    ensureTokenIsValidMiddleware,
+    getProfileController
 )
 
 userRoutes.get('/:id',

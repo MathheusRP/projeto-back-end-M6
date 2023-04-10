@@ -15,6 +15,7 @@
   - [Listando Usuário por ID](#53---listando-usuário-por-id)
   - [Atualizar Usuário por ID](#54---atualizar-usuário-por-id)
   - [Deletar Usuário por ID](#55---deletar-usuário-por-id)
+  - [Buscar Perfil](#56---buscar-perfil)
 - [Contatos](#6---contatos)
   - [Criação de Contato](#61---criação-de-contato)
   - [Atualizar Contato por ID](#62---atualizar-contato-por-id)
@@ -305,6 +306,7 @@ Necessita de apenas um campo para fazer a atualização parcial.
 | 404 Not Found    | User dont exists. |
 | 401 Unauthorized | jwt malformed.    |
 | 401 Unauthorized | Invalid token.    |
+| 400 Bad Rquest   | One of the fields must be defined. |
 ---
 
 ### 5.5 - **Deletar Usuário por ID**
@@ -335,6 +337,44 @@ vazio.
 | 404 Not Found    | User dont exists.  |
 | 403 Unauthorized | User is not admin. |
 ---
+
+### 5.6 - **Buscar Perfil**
+[ Voltar aos Endpoints ](#tabela-de-conteúdos)
+### `/users/profile`
+### Exemplo de Request:
+
+GET http://localhost:3000/users/profile
+  Authorization: Bearer token
+  Content-type: application/json
+```
+### Corpo da Requisição:
+```json
+Vazio
+```
+### Exemplo de Response:
+```
+200 OK
+```
+```json
+
+  {
+    "id": 1,
+    "name": "admin",
+    "is_admin": true,
+    "phone_number": "11 91234-5678",
+    "email": "admin@dev.com",
+    "deletedAt": null,
+    "updatedAt": "2023-04-08T12:12:03.048Z",
+    "createdAt": "2023-04-08T12:12:03.048Z"
+  }
+
+```
+### Possíveis Erros:
+| Código do Erro   | Descrição         |
+| ---------------- | --------------    |
+| 401 Unauthorized | Token is missing. |
+---
+
 
 ## 6 - **Contatos**
 [ Voltar para os Endpoints ](#tabela-de-conteúdos)

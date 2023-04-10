@@ -3,7 +3,7 @@ import { z } from 'zod'
 export const contactsSchema = z.object({
     name: z.string().min(3).max(30),
     email: z.string().min(10).max(60),
-    phone_number: z.string().max(15),
+    phone_number: z.string(),
 })
 
 export const contactUpdateSchema = contactsSchema.partial()

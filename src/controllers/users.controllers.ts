@@ -5,6 +5,7 @@ import { deleteUserService } from "../services/user/deleteUser.service";
 import { listUserService } from "../services/user/listUsers.service";
 import { updateUserService } from "../services/user/updateUser.service";
 import { getUserByIdService } from "../services/user/getUserById.service";
+import { getProfileService } from "../services/user/getProfile.service";
 
 export const CreateUserController = async (req: Request, res: Response) => {
     const userData: UserInterface = req.body
@@ -16,6 +17,13 @@ export const listUserController = async (req: Request, res: Response) => {
     const listUser = await listUserService()
 
     return res.status(200).json(listUser)
+}
+
+export const getProfileController = async (req: Request, res: Response) => {
+
+    const user = await getProfileService(req.user.id)
+
+    return res.status(200).json(user)
 }
 
 export const getUserByIdController = async (req: Request, res: Response) => {

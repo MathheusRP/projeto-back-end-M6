@@ -18,8 +18,6 @@ export const ensureTokenIsValidMiddleware = (req: Request, res: Response, next: 
             throw new AppError(error.message, 401)
         }
 
-
-
         req.user = {
             id: Number(decoded?.sub),
             is_admin: decoded.is_admin
