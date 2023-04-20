@@ -3,7 +3,6 @@ import { ensureTokenIsValidMiddleware } from "../middlewares/ensureTokenIsValid.
 import { createContactsController, deleteContactController, listMyContacts, updateContactController } from "../controllers/contacts.controller";
 import { ensureDataIsValidMiddleware } from "../middlewares/ensureDataIsValid.middleware";
 import { contactsSchema, contactUpdateSchema } from "../schemas/contacts.schemas";
-import { contactYupSchema } from "../schemas/contactsYup.schema";
 
 export const contacsRoutes: Router = Router()
 

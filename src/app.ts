@@ -6,10 +6,7 @@ import { loginRouter } from './routes/login.routes'
 import { contacsRoutes } from './routes/contact.routes'
 import cors from 'cors'
 
-
 const app: Application = express()
-
-
 
 app.use(express.json())
 
